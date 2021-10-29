@@ -1,30 +1,43 @@
 // Assignment code here
 
-//Add special chatacters
-var specialcharacter = ["!", "@","etc"]
-var numberscharacters = ["1", "2". etc]
-var lowercasecharacters = ["a" etc...]
-var uppercasecharacters = ["A" etc...]
+var specialcharacter = ["!()?[]`~;:!@#$%^&*+=c"]
+var numberscharacters = ["0123456789"]
+var lowercasecharacters = ["abcdefghijklmnopqrstuvwxyz"]
+var uppercasecharacters = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
 
 function passwordoptions () {
 var characterlength = parseInt(
-  prompt("How long would you like your password to be?")
+  prompt("How long would you like your password to be? Enter a number between 8 and 128")
 )
 if (Number.isNaN(characterlength)) {
-  alert ("Try Again")
+  alert ("Please Try Again")
   return null
 }
 if (characterlength <8) {
-  alert ("Try Again")
+  alert ("Please Try Again")
   return null
 }
 if (characterlegnth >128) {
-  alert ("try again")
+  alert ("Please try again")
   return null 
 }
 // add fpr the rest of the variables (see above)
 var specialcharacterchoicelist = confirm(
   "Click Ok to include your special characters"
+)
+}
+
+var numberscharacterschoicelist = confirm(
+  "Click Ok to include your number characters"
+)
+}
+
+var lowercasecharacterschoicelist = confirm(
+  "Click Ok to include your lowercase characters"
+)
+}
+var uppercasecharacterschoicelist = confirm(
+  "Click Ok to include your uppercase characters"
 )
 }
 
