@@ -5,7 +5,10 @@ var numberscharacters = ["0123456789"]
 var lowercasecharacters = ["abcdefghijklmnopqrstuvwxyz"]
 var uppercasecharacters = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
 
+//Write password
 function passwordoptions () {
+
+//vars for password
 var characterlength = parseInt(
   prompt("How long would you like your password to be? Enter a number between 8 and 128")
 )
@@ -21,7 +24,7 @@ if (characterlegnth >128) {
   alert ("Please try again")
   return null 
 }
-// add fpr the rest of the variables (see above)
+// vars for criteria 
 var specialcharacterchoicelist = confirm(
   "Click Ok to include your special characters"
 )
@@ -41,6 +44,23 @@ var uppercasecharacterschoicelist = confirm(
 )
 }
 
+//if for criteria 
+if (lowCase) {
+password = lowercasecharacters
+}
+
+if (upCase) {
+  password = uppercasecharacters
+  }
+
+  if (numbers) {
+    password = numberscharacters
+    }
+
+    if (specialChars) {
+      password = specialcharacter
+      }
+      
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
