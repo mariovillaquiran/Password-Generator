@@ -1,66 +1,171 @@
 // Assignment code here
 
-var specialcharacter = ["!()?[]`~;:!@#$%^&*+=c"]
-var numberscharacters = ["0123456789"]
-var lowercasecharacters = ["abcdefghijklmnopqrstuvwxyz"]
-var uppercasecharacters = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
+var specialcharacter = [
+  "@",
+  "%",
+  "+",
+  "\\",
+  "/",
+  "'",
+  "!",
+  "#",
+  "$",
+  "^",
+  "?",
+  ":",
+  ",",
+  ")",
+  "(",
+  "}",
+  "{",
+  "]",
+  "[",
+  "~",
+  "-",
+  "_",
+  ".",
+];
+var numberscharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var lowercasecharacters = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
+var uppercasecharacters = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
 
 //Write password
-function passwordoptions () {
+function passwordoptions() {
+  //vars for password
+  var characterlength = parseInt(
+    prompt(
+      "How long would you like your password to be? Enter a number between 8 and 128"
+    )
+  );
+  if (Number.isNaN(characterlength)) {
+    alert("Please Try Again");
+    return null;
+  }
+  if (characterlength < 8) {
+    alert("Please Try Again");
+    return null;
+  }
+  if (characterlegnth > 128) {
+    alert("Please try again");
+    return null;
+  }
+  // vars for criteria
+  var specialcharacterchoicelist = confirm(
+    "Click Ok to include your special characters"
+  );
+  var numberscharacterschoicelist = confirm(
+    "Click Ok to include your number characters"
+  );
 
-//vars for password
-var characterlength = parseInt(
-  prompt("How long would you like your password to be? Enter a number between 8 and 128")
-)
-if (Number.isNaN(characterlength)) {
-  alert ("Please Try Again")
-  return null
-}
-if (characterlength <8) {
-  alert ("Please Try Again")
-  return null
-}
-if (characterlegnth >128) {
-  alert ("Please try again")
-  return null 
-}
-// vars for criteria 
-var specialcharacterchoicelist = confirm(
-  "Click Ok to include your special characters"
-)
+  var lowercasecharacterschoicelist = confirm(
+    "Click Ok to include your lowercase characters"
+  );
+
+  var uppercasecharacterschoicelist = confirm(
+    "Click Ok to include your uppercase characters"
+  );
+  var passwordoptions = {
+    characterlength: characterlength,
+    specialcharacterchoicelist: specialcharacterchoicelist,
+    numberscharacterschoicelist: numberscharacterschoicelist,
+    lowercasecharacterschoicelist: lowercasecharacterschoicelist,
+    uppercasecharacterschoicelist: uppercasecharacterschoicelist,
+  };
+  return passwordoptions;
 }
 
-var numberscharacterschoicelist = confirm(
-  "Click Ok to include your number characters"
-)
+function randomnumber() {
+  var randomindex = Math.floor(Math.random() * array.length);
+  var randomelement = array[randomindex];
+
+  return randomelement;
 }
 
-var lowercasecharacterschoicelist = confirm(
-  "Click Ok to include your lowercase characters"
-)
-}
-var uppercasecharacterschoicelist = confirm(
-  "Click Ok to include your uppercase characters"
-)
-}
+function generatePassword() {
+  var options = passwordoptions();
+  var results = [];
+  var possiblecharacters = [];
+  var guaranteedcharaters = [];
 
-//if for criteria 
-if (lowCase) {
-password = lowercasecharacters
-}
-
-if (upCase) {
-  password = uppercasecharacters
+  if (options.specialcharacterchoicelist) {
+    possiblecharacters = possiblecharacters.concat(specialcharacter);
+    guaranteedcharaters.push(randomnumber(specialcharacter));
   }
 
-  if (numbers) {
-    password = numberscharacters
-    }
+  if (options.uppercasecharacterschoicelist) {
+    possiblecharacters = possiblecharacters.concat(uppercasecharacters);
+    guaranteedcharaters.push(randomnumber(uppercasecharacters));
+  }
 
-    if (specialChars) {
-      password = specialcharacter
-      }
-      
+  if (options.lowercasecharacterschoicelist) {
+    possiblecharacters = possiblecharacters.concat(lowercasecharacters);
+    guaranteedcharaters.push(randomnumber(lowercasecharacters));
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    var possiblecharacter = randomnumber(possiblecharacters);
+    results.push(possiblecharacter);
+  }
+  for (let i = 0; i < array.length; i++) {
+    results[i] = guaranteedcharaters[i];
+  }
+  return results.join("");
+}
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -70,7 +175,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
