@@ -99,7 +99,7 @@ function passwordoptions() {
     alert("Please Try Again");
     return null;
   }
-  if (characterlegnth > 128) {
+  if (characterlength > 128) {
     alert("Please try again");
     return null;
   }
@@ -128,9 +128,9 @@ function passwordoptions() {
   return passwordoptions;
 }
 
-function randomnumber() {
-  var randomindex = Math.floor(Math.random() * array.length);
-  var randomelement = array[randomindex];
+function randomnumber(arr) {
+  var randomindex = Math.floor(Math.random() * arr.length);
+  var randomelement = arr[randomindex];
 
   return randomelement;
 }
@@ -156,11 +156,16 @@ function generatePassword() {
     guaranteedcharaters.push(randomnumber(lowercasecharacters));
   }
 
-  for (let i = 0; i < array.length; i++) {
+  if (options.numberscharacterschoicelist) {
+    possiblecharacters = possiblecharacters.concat(numberscharacters);
+    guaranteedcharaters.push(randomnumber(numberscharacters));
+  }
+
+  for (let i = 0; i < options.characterlength; i++) {
     var possiblecharacter = randomnumber(possiblecharacters);
     results.push(possiblecharacter);
   }
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < guaranteedcharaters.length; i++) {
     results[i] = guaranteedcharaters[i];
   }
   return results.join("");
