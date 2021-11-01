@@ -1,4 +1,4 @@
-# HW02: Advanced CSS Portfolio
+# HW03: JavaScript Challenge: Password Generator
 
 ## Link to site
 
