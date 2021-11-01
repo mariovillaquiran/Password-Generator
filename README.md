@@ -29,7 +29,7 @@ THEN the password is either displayed in an alert or written to the page
 
 ## Mock-Up
 
-
+<img width="1347" alt="screenshot" src="https://user-images.githubusercontent.com/90975246/139605764-1886b915-75f6-458f-b6fa-a034d9e9e3e9.png">
 
 # Lincense
 
